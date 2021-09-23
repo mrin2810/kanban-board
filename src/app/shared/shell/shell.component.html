@@ -37,7 +37,20 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
 
-            <mat-menu #menu="matMenu"></mat-menu>
+            <mat-menu #menu="matMenu">
+                <a mat-menu-item href="https://github.com/mrin2810">
+                    <i>[G] </i>
+                    <span>Checkout Github</span>
+                </a>
+                <a mat-menu-item href="https://www.linkedin.com/login">
+                    <i>[L] </i>
+                    <span>Checkout LinkedIn</span>
+                </a>
+                <a mat-menu-item href="https://www.youtube.com/">
+                    <i>[Y] </i>
+                    <span>Checkout Youtube</span>
+                </a>
+            </mat-menu>
         </mat-toolbar>
         <ng-content></ng-content>
     </mat-sidenav-content>
