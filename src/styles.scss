@@ -20,7 +20,7 @@ $kanban-board-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$kanban-board-theme: mat.define-light-theme((
+$kanban-board-theme: mat.define-dark-theme((
   color: (
     primary: $kanban-board-primary,
     accent: $kanban-board-accent,
