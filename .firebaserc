@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kanban-board-9ef51": {
+      "hosting": {
+        "kanban-board": [
+          "kanban-board-9ef51"
+        ]
+      }
+    }
+  }
+}
