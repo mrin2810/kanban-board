@@ -83,7 +83,7 @@ export class EmailLoginComponent implements OnInit {
           this.serverMessage = 'Check your email';
         }
       } catch (err) {
-        this.serverMessage = err;
+        this.serverMessage =   err;
       }
 
       this.loading = false;
