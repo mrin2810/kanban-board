@@ -29,4 +29,41 @@ export class BoardService {
       .doc(boardId)
       .delete();
   }
+
+  //update the tasks on the board
+  updateTasks(boardId: string, tasks: Task[]) {
+    return this.db
+      .collection('boards')
+      .doc(boardId)
+      .update({ tasks });
+  }
+
+  // Remove a specific task from the board
+  removeTask(boardId: string, task: Task) {
+    return this.db
+      .collection('boards')
+      .doc(boardId)
+      .update({ 
+        tasks: firebase.default.firestore.FieldValue.arrayRemove(task)
+      });
+  }
+
+  // Get all the boards owned by current user
+
+  getUserBoards() {
+    return this.afAuth.authState.pipe(
+      switchMap(user => {
+          if (user) {
+            return this.db
+              .collection<Board>('boards', ref => 
+                ref.where('uid', '==', user.uid).orderBy('priority')
+              )
+              .valueChanges({ idField: 'id' });
+          } else {
+            return [];
+          }
+        }
+      )
+    )
+  }
 }
