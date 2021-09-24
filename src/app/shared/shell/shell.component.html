@@ -6,10 +6,22 @@
     >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-        <a mat-list-item (click)="drawer.close()" routerLink="/">Home</a>
-        <a mat-list-item (click)="drawer.close()" routerLink="/login">Login</a>
-        <a mat-list-item (click)="drawer.close()" routerLink="/kanban">Kanban Demo</a>
-        <a mat-list-item (click)="drawer.close()" routerLink="/customers">SSR Demo</a>
+        <a class="v" mat-list-item (click)="drawer.close()" routerLink="/">
+            <img class="logo" src="../../../assets/fire.logo.png" alt="Fire">
+            Home
+        </a>
+        <a class="v" mat-list-item (click)="drawer.close()" routerLink="/login">
+            <img class="logo" src="../../../assets/login.logo.png" alt="Login">
+            Login
+        </a>
+        <a class="v" mat-list-item (click)="drawer.close()" routerLink="/kanban">
+            <img class="logo" src="../../../assets/kanban-demo.logo.png" alt="kanban-demo">
+            Kanban Demo
+        </a>
+        <a class="v" mat-list-item (click)="drawer.close()" routerLink="/customers">
+            <img class="logo" src="../../../assets/ssr-demo.logo.png" alt="ssr-demo">
+            SSR Demo
+        </a>
     </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -23,14 +35,26 @@
             >
                 <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
-            <span class="logo" routerLink="/">Kanban Board</span>
+            <span class="logo" routerLink="/">
+                <img class="logo" src="../../../assets/fire.logo.png" alt="Home">
+                Kanban Board
+            </span>
 
             <span class="fill-space"></span>
             <div *ngIf="!(isHandset$ | async)">
-                <a mat-button routerLink="/kanban">Kanban Demo</a>
-                <a mat-button routerLink="/customers">SSR Demo</a>
+                <a mat-button routerLink="/kanban">
+                    <img class="logo" src="../../../assets/login.logo.png" alt="Login">
+                    Kanban Demo
+                </a>
+                <a mat-button routerLink="/customers">
+                    <img class="logo" src="../../../assets/kanban-demo.logo.png" alt="kanban-demo">
+                    SSR Demo
+                </a>
 
-                <a mat-button routerLink="/login">Login</a>
+                <a mat-button routerLink="/login">
+                    <img class="logo" src="../../../assets/ssr-demo.logo.png" alt="ssr-demo">
+                    Login
+                </a>
             </div>
 
             <button mat-icon-button [matMenuTriggerFor]="menu">
@@ -38,16 +62,16 @@
             </button>
 
             <mat-menu #menu="matMenu">
-                <a mat-menu-item href="https://github.com/mrin2810">
-                    <i>[G] </i>
+                <a class="v" mat-menu-item href="https://github.com/mrin2810">
+                    <img class="logo" src="../../../assets/github.logo.png" alt="github">
                     <span>Checkout Github</span>
                 </a>
-                <a mat-menu-item href="https://www.linkedin.com/login">
-                    <i>[L] </i>
+                <a class="v" mat-menu-item href="https://www.linkedin.com/login">
+                    <img class="logo" src="../../../assets/linkedin.logo.png" alt="linkedin">
                     <span>Checkout LinkedIn</span>
                 </a>
-                <a mat-menu-item href="https://www.youtube.com/">
-                    <i>[Y] </i>
+                <a class="v" mat-menu-item href="https://www.youtube.com/">
+                   <img class="logo" src="../../../assets/youtube.logo.png" alt="youtube">
                     <span>Checkout Youtube</span>
                 </a>
             </mat-menu>

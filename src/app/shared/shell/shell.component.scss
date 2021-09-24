@@ -8,6 +8,17 @@
     outline: none;
   }
 
+  img.logo {
+      width: 20px;
+      height: 20px;
+  }
+
+  a.v {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
   .mat-drawer-side {
       border: none;
       box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.3);
