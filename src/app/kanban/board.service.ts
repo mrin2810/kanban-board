@@ -22,6 +22,7 @@ export class BoardService {
       tasks: [{ description: 'Hello!', label: 'yellow' }]
     });
   }
+
   //delete a board
   deleteBoard(boardId: string) {
     return this.db
@@ -43,27 +44,35 @@ export class BoardService {
     return this.db
       .collection('boards')
       .doc(boardId)
-      .update({ 
+      .update({
         tasks: firebase.default.firestore.FieldValue.arrayRemove(task)
       });
   }
 
   // Get all the boards owned by current user
-
   getUserBoards() {
     return this.afAuth.authState.pipe(
       switchMap(user => {
-          if (user) {
-            return this.db
-              .collection<Board>('boards', ref => 
-                ref.where('uid', '==', user.uid).orderBy('priority')
-              )
-              .valueChanges({ idField: 'id' });
-          } else {
-            return [];
-          }
+        if (user) {
+          return this.db
+            .collection<Board>('boards', ref =>
+              ref.where('uid', '==', user.uid).orderBy('priority')
+            )
+            .valueChanges({ idField: 'id' });
+        } else {
+          return [];
         }
+      }
       )
     )
+  }
+
+  // run a batch write to change the priority of each board for sorting
+  sortBoards(boards: Board[]) {
+    const db = firebase.default.firestore();
+    const batch = db.batch();
+    const refs = boards.map(b => db.collection('boards').doc(b.id));
+    refs.forEach((ref, idx) => batch.update(ref, { priority: idx }));
+    batch.commit();
   }
 }
