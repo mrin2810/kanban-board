@@ -10,11 +10,13 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BoardListComponent } from './board-list/board-list.component';
 import { BoardComponent } from './board/board.component';
 import { BoardDialogComponent } from './dialogs/board-dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
     BoardListComponent,
     BoardComponent,
+    BoardDialogComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { BoardDialogComponent } from './dialogs/board-dialog.component';
     DragDropModule,
     MatDialogModule,
     MatButtonToggleModule,
+    MatFormFieldModule
   ],
   entryComponents: [BoardDialogComponent],
 })

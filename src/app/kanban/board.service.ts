@@ -32,7 +32,7 @@ export class BoardService {
   }
 
   //update the tasks on the board
-  updateTasks(boardId: string, tasks: Task[]) {
+  updateTasks(boardId: string | undefined, tasks: Task[]) {
     return this.db
       .collection('boards')
       .doc(boardId)
